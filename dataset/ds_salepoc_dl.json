@@ -1,0 +1,15 @@
+{
+	"name": "ds_salepoc_dl",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stdwbidata001LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureBlob",
+		"typeProperties": {
+			"folderPath": "wwi/sale-brokenpoc"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

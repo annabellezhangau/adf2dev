@@ -1,0 +1,15 @@
+{
+	"name": "ds_customerinfo_dl",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dldwbidata001LS2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureBlob",
+		"typeProperties": {
+			"folderPath": "wwi/sale-csv"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

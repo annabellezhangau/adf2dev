@@ -1,0 +1,16 @@
+{
+	"name": "ds_customerinfo_st",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stdwbidata001LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureBlob",
+		"typeProperties": {
+			"fileName": "customerinfo.csv",
+			"folderPath": "wwi/customer-info"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

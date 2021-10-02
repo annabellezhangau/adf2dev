@@ -1,0 +1,16 @@
+{
+	"name": "ds_from_lsname",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureBlob",
+		"typeProperties": {
+			"fileName": "sale-20170501.csv",
+			"folderPath": "wwi/sale-brokenpoc"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

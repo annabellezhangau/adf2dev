@@ -1,0 +1,16 @@
+{
+	"name": "ds_customerinfo_tumbling_s",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "stdwbidata001LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureBlob",
+		"typeProperties": {
+			"fileName": "2021-09-15-10-32-11.csv",
+			"folderPath": "wwi/customerinfo_tumbling_s/2021/09/15/02/"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

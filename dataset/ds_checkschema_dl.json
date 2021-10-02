@@ -1,0 +1,23 @@
+{
+	"name": "ds_checkschema_dl",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dldwbidata001LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureBlob",
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"rowDelimiter": "",
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": false
+			},
+			"folderPath": "wwi/checkschemasale-brokenpoc"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

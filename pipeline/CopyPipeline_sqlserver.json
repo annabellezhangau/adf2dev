@@ -1,0 +1,194 @@
+{
+	"name": "CopyPipeline_sqlserver",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach_x6l",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.cw_items",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy_x6l",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [
+								{
+									"name": "Source",
+									"value": "dbo.@{item().source.table}"
+								},
+								{
+									"name": "Destination",
+									"value": "northwinds//@{item().destination.fileName}"
+								}
+							],
+							"typeProperties": {
+								"source": {
+									"type": "SqlServerSource",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"validateDataConsistency": false
+							},
+							"inputs": [
+								{
+									"referenceName": "SourceDataset_x6l",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_table": "@item().source.table"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DestinationDataset_x6l",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_fileName": "@item().destination.fileName"
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"cw_items": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"source": {
+							"table": "Categories"
+						},
+						"destination": {
+							"fileName": "dboCategories.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "CustomerCustomerDemo"
+						},
+						"destination": {
+							"fileName": "dboCustomerCustomerDemo.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "CustomerDemographics"
+						},
+						"destination": {
+							"fileName": "dboCustomerDemographics.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "Customers"
+						},
+						"destination": {
+							"fileName": "dboCustomers.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "Employees"
+						},
+						"destination": {
+							"fileName": "dboEmployees.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "EmployeeTerritories"
+						},
+						"destination": {
+							"fileName": "dboEmployeeTerritories.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "Order Details"
+						},
+						"destination": {
+							"fileName": "dboOrder%20Details.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "Orders"
+						},
+						"destination": {
+							"fileName": "dboOrders.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "Products"
+						},
+						"destination": {
+							"fileName": "dboProducts.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "Region"
+						},
+						"destination": {
+							"fileName": "dboRegion.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "Shippers"
+						},
+						"destination": {
+							"fileName": "dboShippers.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "Suppliers"
+						},
+						"destination": {
+							"fileName": "dboSuppliers.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "Territories"
+						},
+						"destination": {
+							"fileName": "dboTerritories.csv"
+						}
+					}
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-10-02T01:08:59Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

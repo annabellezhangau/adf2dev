@@ -1,0 +1,25 @@
+{
+	"name": "trigger_customerinfo_temp",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "cp_customerinfo_st2dl",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/wwi/blobs/customerinfo_temp",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/0d00730e-6b74-45dc-bad6-5681572e72bd/resourceGroups/rg-test-dw/providers/Microsoft.Storage/storageAccounts/asastorezzzz2222",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

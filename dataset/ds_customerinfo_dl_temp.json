@@ -1,0 +1,16 @@
+{
+	"name": "ds_customerinfo_dl_temp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dldwbidata001LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureBlob",
+		"typeProperties": {
+			"fileName": "",
+			"folderPath": "wwi/customerinfo_dl_temp/"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

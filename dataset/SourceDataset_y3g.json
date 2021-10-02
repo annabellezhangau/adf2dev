@@ -1,0 +1,27 @@
+{
+	"name": "SourceDataset_y3g",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_folderPath": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": {
+					"value": "@dataset().cw_folderPath",
+					"type": "Expression"
+				},
+				"container": "wwi/customerinfo_tumbling_s"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
